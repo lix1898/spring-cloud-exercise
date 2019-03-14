@@ -1,0 +1,24 @@
+server:
+  port: 8860
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone:  http://localhost:8080/eureka/
+
+spring:
+  application:
+    name: service-zull
+  #main:
+    #allow-bean-definition-overriding: true
+zuul:
+  routes:
+    api-a:
+      path: /api-a/**
+      serviceId: service.hi.ribbon
+    api-b:
+      path: /api-b/**
+      serviceId: service.hi.feign
+
+
+
